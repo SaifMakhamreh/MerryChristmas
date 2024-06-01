@@ -1,99 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Wallpaper</title>
-    <style>
-        body {
-            background-color: lightblue; /* default color */
-            transition: background-color 0.5s ease; /* smooth transition */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
-            font-family: Arial, sans-serif; /* Specify a fallback font */
-            position: relative; /* Set position to relative for absolute positioning */
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column; /* stack items vertically */
-        }
-
-        .wallpaper {
-            position: absolute;
-            top: 10px; /* Adjust to desired top position */
-            left: 10px; /* Adjust to desired left position */
-            width: 150px; /* Set desired width */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            margin-top: 20px; /* Add margin to separate from the image */
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .light-pink-bg {
-            background-color: #fce4ec; /* light pink color */
-        }
-
-        .message {
-            max-width: 80%;
-            text-align: center;
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .sad-emoji {
-            display: none;
-            max-width: 150px;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <img class="wallpaper" id="wallpaperImage" src="https://i.kym-cdn.com/entries/icons/original/000/029/408/cover78.jpg" alt="A cute kitten">
-    <img class="sad-emoji" id="sadEmojiImage" src="https://a0.anyrgb.com/pngimg/108/1732/sad-emoji-face-with-tears-of-joy-emoji-sad-emojis-sadness-crying-emoji-emoticon-emotion-smiley-thumbnail.png" alt="Sad Emoji">
-    <button id="changeWallpaperButton" onclick="changeWallpaper()">Click me;(</button>
-
-    <!-- Add audio element -->
-    <audio id="audio" src="your-song.mp3"></audio>
-
-    <script>
-        function changeWallpaper() {
-            document.body.classList.toggle('light-pink-bg');
-            document.getElementById('changeWallpaperButton').style.display = 'none';
-            document.getElementById('wallpaperImage').style.display = 'none';
-
-            // Show the sad emoji image
-            document.getElementById('sadEmojiImage').style.display = 'block';
-
-            // Play the song
-            var audio = document.getElementById('audio');
-            audio.play();
-
-            // Create and append the message
-            var message = document.createElement('div');
-            message.classList.add('message');
-            message.innerHTML = "<p>Hey my sweet baby I know yesterday night went really bad for both of us. I didn't want this to happen on our 8 month anniversary. It really hurt me deeply inside and left me no words for you yesterday night and neither today. I'm sorry I'm not texting you right now, just wanted a space to cool down and work on myself better to be the same man you loved back then. I'm really sorry for not being enough to you right now or changed. I don't mean to do this to you, my sweet baby. I still love you with all my heart. I hope you know that still. I'm sorry to make you sad and overthink of me not loving you. I adore you baby, I would take a bullet for you my sweet girl. I still listen to our playlist we made together and read your first letters to me. God, you're so cute my baby. I just listened to your first songs that reminded you of me, 'Flightless bird' and 'Endors toi'. I still listen to them to this day. I'm making you this website I've been working on since 1 to show you how much I actually love you and would do anything for you. And if you're reading this, I hope you can forgive me baby for my actions. Mwahhh, I love you mimi&lt;3</p>";
-
-            document.body.appendChild(message);
-        }
-    </script>
-</body>
+    <head>
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1.0"
+        />
+        <title>Birthday Card</title>
+        <!-- Google Font -->
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+          rel="stylesheet"
+        />
+        <link href="https://fonts.googleapis.com/css?family=Schoolbell&v1" rel="stylesheet">
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    </head>
+    <body>
+        <div class="card">
+          <div class="outside">
+            <div class="front">
+              <p>HABEDE SALMA VIKHA!</p>
+              <div class="cake">
+                <div class="top-layer"></div>
+                <div class="middle-layer"></div>
+                <div class="bottom-layer"></div>
+                <div class="candle"></div>
+              </div>
+            </div>
+            <div class="back"></div>
+          </div>
+          <div class="inside">
+            <p onmouseover="bdayMSG()">Move cursor over me for birthday messages!</p>
+          </div>
+        </div>
+        <script>
+          const jsConfetti = new JSConfetti()
+          jsConfetti.addConfetti()
+          const wishes = ['HBD Sal. Cheers to your personal new year! I got you a birthday present, You’re reading it🤭 Uhh do u wanna try the “Badak Berendam”? 😋😂 - RISKA', 
+                          'Selamat ulang tawwwnn vikhayangg 🎂🍰🎉🎊, semoga sehat selalu, panjang umur, diberi kemudahan dan kelancaran di segala usaha, dan tercapai apa yang dicita citakan (salah satuny nonton wandi sma aqoh wqwq) 🎤👩‍🎤, mwaa 💋 - ISYA', 
+                          'happy birthday salmaaa my future u2 neighbour!! sayang gk sebelah sebelahan tpi gw masih akan ngesot utk ngambil makanan wkwkkwkw…semoga lancar terus di ubco!! see u in kelowna, wish u all the best :) - KRISALYN',
+                          'makan tahun dari sumedangg, selamat ulang tahun salma dari sumedang - JOHANES',
+                          'beli bihun pake peniti, selamat ulang tahun salma 2 sentii - RISYAD',
+                          'Salma, semoga sehat selalu dan semua yang terbaik untuk salma - PUTRI',
+                          'happy birthday salma!! 💞 wish you all the best yaa :) jujur u make me laugh a lot and youre very fun to be around 🥰 semoga kita sering main bareng yaa di year 2. hepi selaluu 🥳 - JAUSHA',
+                          'salma vikhayang, cie cie ultah ni yee. selamat hari menetas ibuk. terima kasih sudah menjadi temen sesama gilaku di ubco, hari hari aku di ubco jd indah deh😚. kangen besar, see u nanti september, ayu visit medan biar kuliner-an kitaa. im wishing you abundance of love and happiness!! semangat kuliah 3 tahun kedepan, sllu success di future endeavors kamu. sayang besar ❤️❤️❤️ - ANDREA',
+                          'hyyyy selamat habede bestinya tate mcrae 🥳, wish u all the bestt! may all your dreams come true and all your hard work come into fruition!! cheers to more balbalan sessions and hackathons with youu 🥂🥂 - ADARA'];
+          let idx = 0;
+          function bdayMSG(){
+            if (idx >= wishes.length) {
+              location.reload(); // refresh the page if all messages have been displayed
+            }
+            const message = wishes[idx];
+            idx++;
+            const msgElement = document.querySelector('.inside p');
+            msgElement.textContent = message;
+          }
+        </script>
+    </body>
 </html>
